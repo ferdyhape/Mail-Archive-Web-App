@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string('letter_number');
             $table->integer('category_id');
             $table->string('title');
-            $table->timestamp("archive_time")->useCurrent();;
-            $table->timestamps();
+            $table->timestamp("archive_time");
         });
     }
 
