@@ -28,8 +28,6 @@ class DatabaseSeeder extends Seeder
                 'title' => $faker->word(),
                 'category_id' => $faker->numberBetween(1, 3),
                 'archive_time' => Carbon::now(),
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
             ]);
         }
 
