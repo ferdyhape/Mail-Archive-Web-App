@@ -14,6 +14,7 @@ class surat extends Model
         'title',
         'category_id',
         'archive_time',
+        'file',
     ];
 
     protected $guarded = ['id'];
