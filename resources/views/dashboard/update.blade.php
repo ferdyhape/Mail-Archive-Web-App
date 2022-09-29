@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-<div class="container mt-5 mb-5 d-flex justify-content-center">
+<div class="container pt-2 pb-5">
     @if ($message = Session::get('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ $message }}
@@ -9,15 +9,17 @@
         </button>
     </div>
     @endif
-    <div class="col-lg-5 shadow p-5 bg-light" id="form-all">
-        <h2 class="h3 text-center mb-4">Tambah surat</h2>
+    <div class=" p-5">
+        <h2 class="h3">Edit surat</h2>
+        <p class="mb-4">*Gunakan file berformat .pdf</p>
         <form action="/surat/{{ $surat->id }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
+            <input type="hidden" name="old_letter_number" id="old_letter_number" value="{{ $surat->letter_number }}">
             <div class="mb-3">
                 <label for="letter_number" class="form-label">Nomor Surat</label>
                 <input type="text" class="form-control @error('letter_number') is-invalid @enderror" id="letter_number"
-                    name="letter_number" required autofocus value="{{ $surat->letter_number }}">
+                    name="letter_number" autofocus value="{{ $surat->letter_number }}">
                 @error('letter_number')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -46,6 +48,15 @@
                     @endforeach
                 </select>
             </div>
+            <div class="mb-3">
+                <label for="file" class="form-label">File</label>
+                <input class="form-control @error('file') is-invalid @enderror" type="file" id="file" name="file">
+                @error('file')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
             <div class="d-flex justify-content-between">
                 <a href="{{ URL::previous() }}" class="btn btn-info mt-3">Kembali</a>
                 <button type="submit" class="btn btn-primary mt-3">Edit</button>
@@ -53,20 +64,4 @@
         </form>
     </div>
 </div>
-
-{{-- <script>
-    function previewImage() {
-        const image = document.querySelector('#gambar');
-        const imgPreview = document.querySelector('.img-preview')
-
-        imgPreview.style.display = 'block';
-
-        const oFReader = new FileReader();
-        oFReader.readAsDataURL(image.files[0]);
-
-        oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result;
-        }
-    }
-</script> --}}
 @endsection

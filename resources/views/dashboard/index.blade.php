@@ -1,10 +1,27 @@
 @extends('layouts.main')
 @section('container')
-<div class="container">
-    <div class="card-body">
-        <table class="table table-bordered table-hover table-striped">
+<div class="container mb-5">
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ $message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
+    <div class="card-header py-3 d-flex justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary fs-3"><strong>APLIKASI PENGARSIPAN SURAT</strong></h6>
+        <div class="d-flex">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-primary"><a class="text-decoration-none text-white"
+                        href="../surat/create">Arsipkan Surat</a></button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body mb-5">
+        <table id="datatables" class="table table-responsive table-bordered table-hover table-striped table-sm">
             <thead>
                 <tr>
+                    <th>Nomor Surat</th>
                     <th>Judul</th>
                     <th>Kategori</th>
                     <th>Waktu Arsip</th>
@@ -15,13 +32,14 @@
             <tbody>
                 @foreach($surat as $s)
                 <tr>
+                    <td>{{ $s->letter_number }}</td>
                     <td>{{ $s->title }}</td>
                     <td>{{ $s->category->category_name }}</td>
                     <td>{{ $s->archive_time }}</td>
                     <td class="d-flex justify-content-evenly">
-                        <a href="surat/{{ $s->id }}" class="badge bg-success"><i class="bi bi-eye-fill"
+                        <a href="../surat/{{ $s->id }}" class="badge bg-success"><i class="bi bi-eye-fill"
                                 style="font-size: 18px;"></i></a>
-                        <a href="surat/{{ $s->id }}/edit" class="badge bg-warning"><i class="bi bi-pencil-square"
+                        <a href="../surat-download/{{ $s->id }}" class="badge bg-primary"><i class="bi bi-download"
                                 style="font-size: 18px;"></i></a>
                         <form action="surat/{{ $s->id }}" method="POST">
                             @method('delete')
@@ -29,7 +47,6 @@
                             <button class="badge bg-danger border-0" onclick="return confirm('beneran mau hapus?')"><i
                                     class="bi bi-trash" style="font-size: 18px;"></i></button>
                         </form>
-                        <!-- <a href="surat/{{ $s->id }}" class="badge bg-warning"><i class="bi bi-pencil-square" style="font-size: 18px;"></i></a> -->
                     </td>
                 </tr>
                 @endforeach
@@ -37,5 +54,11 @@
         </table>
     </div>
 </div>
+<style>
+    .alert {
+        position: absolute;
+        right: 30%;
+        margin-top: 45px;
+    }
+</style>
 @endsection
-{{-- start code for page --}}
