@@ -2,7 +2,7 @@
 @section('container')
 <div class="container my-5">
     <h1>Arsip Surat</h1>
-    <table class="table h5 mt-4 table-sm" style="width: 600px;">
+    <table class="table h5 mt-4">
         <tr>
             <td>Nomor Surat</td>
             <td>: {{ $surat->letter_number }}

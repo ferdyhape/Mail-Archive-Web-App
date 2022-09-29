@@ -11,7 +11,10 @@
     @endif
     <div class=" p-5">
         <h2 class="h3">Edit surat</h2>
-        <p class="mb-4">*Gunakan file berformat .pdf</p>
+        <ul class="mb-4">
+            <li>Gunakan file berformat .pdf</li>
+            <li>Jika ingin mengganti surat, silahkan input surat baru</li>
+        </ul>
         <form action="/surat/{{ $surat->id }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf

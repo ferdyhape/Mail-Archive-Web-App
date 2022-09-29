@@ -18,14 +18,14 @@
         </div>
     </div>
     <div class="card-body mb-5">
-        <table id="datatables" class="table table-responsive table-bordered table-hover table-striped table-sm">
+        <table id="datatables" class="table table-responsive table-bordered table-hover table-striped">
             <thead>
                 <tr>
                     <th>Nomor Surat</th>
                     <th>Judul</th>
                     <th>Kategori</th>
-                    <th>Waktu Arsip</th>
-                    <th class="text-center">Action</th>
+                    <th style="width: 270">Waktu Arsip</th>
+                    <th class="text-center" style="width: 137.5312px">Action</th>
                 </tr>
             </thead>
 
