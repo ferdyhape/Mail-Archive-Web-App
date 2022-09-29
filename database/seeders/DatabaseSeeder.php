@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
     {
         // insert a surats table
         $faker = Faker::create('id_ID');
-        for ($i = 1; $i <= 50; $i++) {
+        for ($i = 1; $i <= 100; $i++) {
 
             DB::table('surats')->insert([
                 'letter_number' => $faker->randomNumber(5, true),
