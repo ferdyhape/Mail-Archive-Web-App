@@ -44,8 +44,9 @@
                         <form action="surat/{{ $s->id }}" method="POST">
                             @method('delete')
                             @csrf
-                            <button class="badge bg-danger border-0" onclick="return confirm('beneran mau hapus?')"><i
-                                    class="bi bi-trash" style="font-size: 18px;"></i></button>
+                            <button class="badge bg-danger border-0"
+                                onclick="return confirm('Ingin menghapus {{ $s->title }} ?')"><i class="bi bi-trash"
+                                    style="font-size: 18px;"></i></button>
                         </form>
                     </td>
                 </tr>
