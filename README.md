@@ -38,7 +38,7 @@ ___
 ### 👱 About Creator
 * Indonesian Junior Web Developer :indonesia:
 * LinkedIn: [Ferdy Hahan Pradana](https://www.linkedin.com/in/ferdy-hahan-pradana/) <br>
-* Instagram: [ferdyhape](//instagram/ferdyhape) <br>
+* Instagram: [ferdyhape](//instagram.com/ferdyhape) <br>
 
 
 
